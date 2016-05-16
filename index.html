@@ -1,0 +1,39 @@
+---
+layout: default
+title: Les classes préparatoires du Lycée Vaucanson
+category: top
+---
+
+<div class="jumbotron">
+  <h1>{{site.title}}</h1>
+  <p class="lead">{{site.description}}</p>
+</div>
+
+<!-- <h1 class="page-heading">Posts</h1> -->
+
+  <!-- <ul class="post-list"> -->
+    {% for post in site.posts %}
+      <!-- <li> -->
+        <!-- <span class="vox-post">{{ post.date | date_to_string }}</span> -->
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | downcase }}</a> <span class="vox-post">{{ post.date | date_to_string }}</span>
+        </h2>
+        {{ post.excerpt }}
+      <!-- </li> -->
+    {% endfor %}
+  <!-- </ul> -->
+
+  <!-- <h1>Pages</h1> -->
+
+  <ul>
+    {% for page in site.pages %}
+      {% if page.parent == "top" %}
+    <li><a href="{{ page.url | prepend: site.baseurl }}">{{page.title}}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>

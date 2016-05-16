@@ -1,0 +1,17 @@
+<div class="vox-masthead">
+    <div class="container">
+        <!-- <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a> -->
+        <nav class="vox-nav">
+            {% for page in site.pages %}
+            {% if page.title and page.category == "top" %}
+            <a class="vox-nav-item" href="{{ page.url | prepend: site.baseurl }}">Accueil</a>
+            {% endif %}
+            {% endfor %}
+            {% for page in site.pages %}
+            {% if page.title and page.parent == "top" %}
+            <a class="vox-nav-item" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+            {% endif %}
+            {% endfor %}
+        </nav>
+    </div>
+</div>
