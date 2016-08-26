@@ -1,0 +1,365 @@
+---
+Title: Stylesheet for the Vox Site
+---
+
+// $base-font-weight: 300;
+// $base-font-size: 16px;
+// $base-line-height: 1.1;
+// $base-font-family: "Source Sans Pro";
+// $text-color: #222;
+// $background-color: #fff;
+// $spacing-unit: 
+// @import "base";
+
+$code-font-family: "Source Code Pro";
+$jumbotron-padding: 0px;
+
+@import "bootstrap";
+@import "syntax-highlighting";
+
+// Globals
+
+body {
+  font-family: "Source Sans Pro";
+  font-weight: 300;
+  color: #222;
+  padding-top: 50px;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+  color: #333;
+}
+
+h1 {
+  small {
+      font-variant: small-caps;
+  }
+}
+strong {
+  font-weight: 400;
+  color: #000;
+}
+
+code {
+  font-family: $code-font-family;
+  font-weight: 300;
+}
+
+pre {
+  font-family: $code-font-family;
+  font-weight: 300;
+}
+
+table {
+  @extend .table
+}
+
+.btn-group {
+  padding-left: 8px;
+  padding-right: 8px;
+  .btn {
+    padding-left: 4px;
+    padding-right: 0px;
+  }
+}
+/*
+ * Override Bootstrap's default container.
+ */
+
+// @media (min-width: 1200px) {
+//   .container {
+//     width: 970px;
+//   }
+// }
+
+/*
+ * Masthead for nav
+ */
+
+.vox-masthead {
+  background-color: #428bca;
+  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+  box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+}
+
+/* Nav links */
+.vox-nav-item {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-weight: 500;
+  color: #cdddeb;
+
+  :hover,:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+/* Active state gets a caret at the bottom */
+.vox-nav .active {
+  color: #fff;
+}
+.vox-nav .active:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -5px;
+  vertical-align: middle;
+  content: " ";
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid;
+  border-left: 5px solid transparent;
+}
+
+/*
+ * vox name and description
+ */
+
+.vox-header {
+  padding: 20px;
+  background-image: url({{ site.base_url }}/photos/jumback.png);
+  background-size: cover;
+  height: 100%;
+}
+
+.vox-title {
+  // font-family: "Source Sans Pro";
+  // letter-spacing: 3px; 
+  // font-variant-ligatures: none;
+  // font-weight: 600;
+  // font-size: 50px;
+  // color: #333;
+  // padding: 0px;
+  // margin-top: 20px;
+  // margin-bottom: 20px;
+  // background: #fff; 
+  letter-spacing: 5px; 
+  font-variant-ligatures: none;
+  font-weight: 200;
+  font-size: 45px;
+  color: #333;
+  padding-left: 70px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.vox-description {
+  // font-family: "Source Sans Pro";
+  font-size: 20px;
+  color: #999;
+}
+
+/*
+ * Main column and sidebar layout
+ */
+
+.vox-main {
+  font-size: 16px;
+  line-height: 1.2;
+
+  h1 {
+  // letter-spacing: 10px; 
+  // font-variant-ligatures: none;
+  // font-weight: 200;
+  // font-size: 50px;
+  // color: #333;
+  // padding: 0px;
+  // margin-top: 20px;
+  // margin-bottom: 20px;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #000000;
+    margin-bottom: 10px;
+    font-family: "Source Sans Pro";
+    font-weight: 300;
+    letter-spacing: 3px ;
+    font-variant-ligatures: none;
+    font-size: 35px;
+  }
+
+  h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-family: "Source Sans Pro";
+    font-variant-ligatures: none;
+    letter-spacing: 3px ;
+    font-weight: 300;
+    font-size: 25px;
+  }
+
+  h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "Source Sans Pro";
+    font-variant-ligatures: none;
+    color: #666;
+    letter-spacing: 1.5px ;
+    font-weight: 400;
+    font-size: 20px;
+  }
+}
+
+// Sidebar modules for boxing content
+
+.sidebar-module {
+  padding: 15px;
+  margin: 0 -15px 15px;
+}
+
+.sidebar-module-inset {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+
+  p:last-child, ul:last-child, ol:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+/* Pagination */
+.pager {
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+.pager > li > a {
+  width: 140px;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+
+/*
+ * vox posts
+ */
+
+.vox-post {
+  font-size: 15px;
+  font-weight: 300;
+}
+.vox-post-title {
+  margin-bottom: 5px;
+  font-size: 40px;
+}
+.vox-post-meta {
+  margin-bottom: 20px;
+  color: #999;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.post-link {
+  font-weight: 300 ;
+  letter-spacing: 2px ;
+  font-variant-ligatures: none;
+  font-variant: small-caps;
+}
+
+.post-link:hover {
+  color: #222 ;
+  text-decoration: none;
+  /*background: #eee;*/
+}
+
+// Jumbotron
+
+.jumbotron {
+  background-image: url({{ site.base_url }}/photos/jumback.png);
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  h1 {
+    font-weight: 200 ;
+    letter-spacing: 10px ;
+    font-variant-ligatures: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    // padding-top: 60px;
+  }
+
+  h2 {
+    letter-spacing: 5px; 
+    font-variant-ligatures: none;
+    font-weight: 200;
+    font-size: 45px;
+    color: #333;
+    // padding-left: 70px;
+    // margin-top: 20px;
+    // margin-bottom: 20px;
+    text-align: left;
+  }
+
+  h3 {
+    letter-spacing: 2px; 
+    font-variant-ligatures: none;
+    font-weight: 200;
+    font-size: 30px;
+    color: #333;
+    // padding-left: 70px;
+    // margin-top: 20px;
+    // margin-bottom: 20px;
+    text-align: left;
+  }
+
+  p {
+    font-weight: 200;
+    letter-spacing: 1px;
+    font-variant-ligatures: none;
+    font-size: 30px;
+    color: #555;
+    padding-left: 100px;
+    padding-right: 100px;
+    // padding-bottom: 60px;
+  }
+}
+
+// Footer
+
+.vox-footer {
+  padding: 40px 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Thumbnails
+
+.thumbnail {
+  img {
+    @extend .img-responsive
+  }
+
+  p {
+    @extend .caption
+  }
+}

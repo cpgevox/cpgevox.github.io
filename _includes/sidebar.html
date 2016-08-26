@@ -1,0 +1,20 @@
+{% assign pagedepth = page.path | split: '/' | size | minus: 2 %}
+{% assign pagepath = page.path | remove: page.name %}
+{% assign indexpage = pagepath | append: "index.md" %}
+{% for p in site.pages %}
+  {% if p.path == indexpage %}
+  <p><a href="{{p.url | prepend: site.baseurl }}">{{p.title}}</a> </p>
+  {% endif %}
+{% endfor %}
+<br>
+{% for p3 in site.pages %}
+{% assign p3path = p3.path | remove: p3.name %}
+{% assign depth3 = p3.path | split: '/' | size | minus: 2 %}
+{% if p3.name != "index.md" %}
+{% if p3path == pagepath and depth3 == pagedepth %}
+<p><a href="{{p3.url | prepend: site.baseurl }}">{{p3.title}}</a></p>
+{% endif %}
+{% elsif p3path contains pagepath and depth3 != pagedepth %}
+<p>> <a href="{{p3.url | prepend: site.baseurl }}">{{p3.title}}</a></p>
+{% endif %}
+{% endfor %}
