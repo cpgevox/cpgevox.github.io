@@ -18,7 +18,13 @@ url: "http://yourdomain.com" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
-  
-# markdown: redcarpet
-# redcarpet:
-#     extensions: [with_toc_data]
+include: ["_pages"]
+
+# Kramdown settings
+kramdown:
+  parse_block_html: true
+  math_engine: mathjax
+
+# Sass settings
+sass:
+  sass_dir: _sass

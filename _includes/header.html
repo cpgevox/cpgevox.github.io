@@ -1,17 +1,50 @@
-<div class="vox-masthead">
-    <div class="container">
-        <!-- <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a> -->
-        <nav class="vox-nav">
-            {% for page in site.pages %}
-            {% if page.title and page.category == "top" %}
-            <a class="vox-nav-item" href="{{ page.url | prepend: site.baseurl }}">Accueil</a>
-            {% endif %}
-            {% endfor %}
-            {% for page in site.pages %}
-            {% if page.title and page.parent == "top" %}
-            <a class="vox-nav-item" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-            {% endif %}
-            {% endfor %}
-        </nav>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-content" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">VOX</a>
     </div>
-</div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="nav-content">
+  <ul class="nav navbar-nav">
+    <!-- First, Home -->
+    <li><span class="btn btn-link navbar-btn"><a  href="{{site.baseurl}}/index.html">Accueil</a></span></li>
+    <!-- Then, other pages -->
+    {% for p2 in site.pages %}
+      {% if p2.name == "index.md" %}
+        {% assign pagedepth = p2.path | split: '/' | size | minus: 2 %}
+        {% if pagedepth == 1 %}
+        {% assign pagepath = p2.path | remove: p2.name %}
+        <li>
+            <div class="btn-group"><span class="btn btn-link navbar-btn"><a href="{{ p2.url | prepend: site.baseurl }}">{{ p2.title }}</a></span>
+            <button type="button" data-toggle="dropdown" class="btn btn-link navbar-btn dropdown-toggle"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+            {% for p3 in site.pages %}
+{% assign p3path = p3.path | remove: p3.name %}
+{% assign depth3 = p3.path | split: '/' | size | minus: 2 %}
+{% if p3.name != "index.md" %}
+{% if p3path == pagepath and depth3 == pagedepth %}
+<li><a href="{{p3.url | prepend: site.baseurl }}">{{p3.title}}</a></li>
+{% endif %} <!-- p3path == pagepath and depth3 == pagedepth -->
+{% elsif p3path contains pagepath and depth3 != pagedepth %}
+<li> <a href="{{p3.url | prepend: site.baseurl }}">{{p3.title}}</a></li>
+{% endif %} <!-- p3.name != "index.md" -->
+{% endfor %} <!-- p3 in site.pages -->
+            </ul></div>
+          </li>
+          {% endif %} <!-- p2.name == "index.md" -->
+          {% endif %} <!-- pagedepth == 1 -->
+            {% endfor %} <!-- p2 in site.pages -->
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<script src="{{ "/js/bootstrap.js" | prepend: site.baseurl }}"></script>

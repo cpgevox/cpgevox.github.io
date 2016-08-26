@@ -6,34 +6,29 @@ category: top
 
 <div class="jumbotron">
   <h1>{{site.title}}</h1>
-  <p class="lead">{{site.description}}</p>
+  <p>{{site.description}}</p>
 </div>
 
-<!-- <h1 class="page-heading">Posts</h1> -->
-
-  <!-- <ul class="post-list"> -->
-    {% for post in site.posts %}
-      <!-- <li> -->
-        <!-- <span class="vox-post">{{ post.date | date_to_string }}</span> -->
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | downcase }}</a> <span class="vox-post">{{ post.date | date_to_string }}</span>
-        </h2>
-        {{ post.excerpt }}
-      <!-- </li> -->
-    {% endfor %}
-  <!-- </ul> -->
-
-  <!-- <h1>Pages</h1> -->
-
-  <ul>
+<div class="row container">
+<!--   <nav class="col-sm-3 relative">
+    <ul>
     {% for page in site.pages %}
       {% if page.parent == "top" %}
     <li><a href="{{ page.url | prepend: site.baseurl }}">{{page.title}}</a></li>
       {% endif %}
     {% endfor %}
   </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+  </nav>
+ -->
+  <nav class="col-sm-8 col-sm-offset-2">
+  <h1>Vox Populi <small>{{ "Dernières nouvelles" | downcase }}</small></h1>
+    {% for post in site.posts %}
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | downcase }}</a> <small>{{ post.date | date_to_string }}</small>
+        </h2>
+        {{ post.excerpt }}
+    {% endfor %}
+  </nav>
 </div>
+
+<!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->

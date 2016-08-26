@@ -14,7 +14,6 @@ Il faut savoir que le pourcentage de réussite en PTSI/PT est plus grand que dan
 | PC      | 5020     | 3513   | 70 %     |
 | PSI     | 5398     | 3651   | 68 %     |
 | PT      | 2389     | 1949   | **82 %** |
-{: .table .table-condensed}
 
 (Statistique officiel de 2015 disponible sur le site du [SCEI](http://www.scei-concours.fr/statistiques/stat2015/stat_generale_2015.html)[^1])
 

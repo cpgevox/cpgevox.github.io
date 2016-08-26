@@ -13,6 +13,8 @@ layout: default
   </nav>
 </div>
 
+<p>Path: {{ page.path }} - {{ page.path | split: '/' | join: ' -- ' }}</p>
+
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="{{ "/js/bootstrap.js" | prepend: site.baseurl }}"></script>
 <script src="{{ "/js/toc.js" | prepend: site.baseurl }}"></script>
